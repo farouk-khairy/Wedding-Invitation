@@ -13,7 +13,7 @@ body{font-family:"Tajawal",sans-serif;background:#FDF9F0;color:var(--text);overf
 /* Preloader */
 #preloader{position:fixed;inset:0;background:var(--cream);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .8s ease, visibility .8s}
 #preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.loader-names{font-size:28px;font-weight:300;letter-spacing:.2em;color:var(--burgundy)}
+.loader-names{font-size:28px;font-weight:300;color:var(--burgundy)}
 .loader-names span{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--brown)}
 .loader-line{width:80px;height:1px;background:rgba(166,3,33,.15);margin:14px auto 0;overflow:hidden}
 .loader-line span{display:block;width:100%;height:100%;background:var(--burgundy);animation:load 1.2s ease-in-out infinite}
@@ -38,8 +38,8 @@ body{font-family:"Tajawal",sans-serif;background:#FDF9F0;color:var(--text);overf
 .eyebrow{font-family:"Tajawal",sans-serif;font-size:32px;opacity:.9;margin-bottom:14px}
 .hero-title{font-size:clamp(44px, 9vw, 92px);font-weight:300;line-height:1;margin-bottom:10px}
 .hero-title span{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:300;color:var(--gold)}
-.hero-date{font-family:"DIN";font-size:clamp(24px,2vw,28px);letter-spacing:.3em;opacity:.95}
-.scroll-hint{margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:18px;letter-spacing:.15em;opacity:.85}
+.hero-date{font-family:"DIN";font-size:clamp(24px,2vw,28px);opacity:.95}
+.scroll-hint{margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:18px;opacity:.85}
 .scroll-arrow{width:28px;height:28px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:grid;place-items:center;animation:bounce 1.8s infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
@@ -58,7 +58,7 @@ body{font-family:"Tajawal",sans-serif;background:#FDF9F0;color:var(--text);overf
 .invitation-text.sm{font-size:14px;margin-top:8px}
 .quran-ornament{text-align:center;color:var(--gold);font-size:32px;margin-bottom:8px}
 .quran-verse{font-family:"Amiri",serif;font-size:clamp(22px,4.5vw,30px);text-align:center;color:var(--text);line-height:1.8}
-.quran-source{text-align:center;font-size:12px;letter-spacing:.15em;color:var(--muted);margin-top:10px}
+.quran-source{text-align:center;font-size:12px;color:var(--muted);margin-top:10px}
 .quran-desc{text-align:center;font-size:12px;color:var(--muted);margin-top:6px}
 .details-title,.countdown-title{text-align:center;font-size:22px;font-weight:500;color:var(--burgundy);margin-bottom:16px}
 .details-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
