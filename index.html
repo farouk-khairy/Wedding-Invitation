@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فاروق & سلمى | دعوة زفاف</title>
+<meta name="description" content="دعوة زفاف فاروق وسلمى - 12 ديسمبر 2026">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader" aria-hidden="true">
+  <div class="loader-inner">
+    <p class="loader-names">فاروق <span>&</span> سلمى</p>
+    <div class="loader-line"><span></span></div>
+  </div>
+</div>
+
+<!-- Music Control -->
+<button id="musicToggle" class="music-btn" aria-label="تشغيل الموسيقى">
+  <span class="music-icon"></span>
+  <span class="music-text">الموسيقى</span>
+</button>
+
+<main id="smooth-wrapper">
+  <!-- HERO - Scene 01 -->
+  <section id="hero" aria-label="المشهد الافتتاحي">
+    <div class="hero-media">
+      <!-- استبدل الصورة بسهولة: ضع صورتك الحالية في assets/images/hero.png -->
+      <!-- لإضافة فيديو بدل الصورة، استبدل الـ img بهذا الكود:
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/images/hero.png">
+        <source src="assets/video/wedding.mp4" type="video/mp4">
+      </video>
+      -->
+      <img id="heroImage" src="assets/hero.png" 
+           onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop'"
+           alt="فاروق وسلمى - شرفة قصر تطل على حديقة الغروب" fetchpriority="high">
+      <div class="hero-overlay"></div>
+      <div class="hero-cream-layer"></div>
+      <div class="hero-grain"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="eyebrow">بداية حكايتنا</p>
+      <h1 class="hero-title">فاروق <span>&</span> سلمى</h1>
+      <p class="hero-date">السبت، 12 ديسمبر 2026</p>
+      <div class="scroll-hint">
+        <span>اسحب لاكتشاف حكايتنا</span>
+        <i class="scroll-arrow">↓</i>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAGIC STACK SECTION -->
+  <section id="stack" aria-label="تفاصيل الدعوة">
+    <div class="stack-container">
+
+      <!-- Card 1: Invitation -->
+      <article class="card card-1" data-card>
+        <div class="card-decor top"></div>
+        <p class="card-eyebrow">دعوة زفاف</p>
+        <div class="divider"><span></span><em>❧</em><span></span></div>
+        <p class="invitation-text">
+          في مناسبة سعيدة، نرجو حضوركم ومشاركتنا فرحة زفاف
+        </p>
+        <h2 class="couple-names">فاروق وسلمى</h2>
+        <p class="invitation-text sm">
+          وجعل هذا المساء أجمل بوجودكم معنا.<br>
+          نلتقي لنحتفل ببداية حكاية جديدة، ونشارككم أجمل لحظاتنا.
+        </p>
+        <div class="divider small"><span></span></div>
+      </article>
+
+      <!-- Card 2: Quran -->
+      <article class="card card-quran" data-card>
+        <div class="quran-ornament">﷽</div>
+        <blockquote class="quran-verse">
+          ﴿وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾
+        </blockquote>
+        <p class="quran-source">سورة الروم — الآية 21</p>
+        <div class="divider"><span></span><em>✦</em><span></span></div>
+        <p class="quran-desc">آيةٌ تُخلّد معنى السكينة والمودة التي تجمع القلوب</p>
+      </article>
+
+      <!-- Card 3: Details -->
+      <article class="card card-details" data-card>
+        <p class="card-eyebrow">تفاصيل المناسبة</p>
+        <h3 class="details-title">يومٌ نبدأ فيه حكايتنا</h3>
+        <div class="details-grid">
+          <div class="detail-item">
+            <span class="detail-icon"></span>
+            <div><strong>العريس</strong><p>فاروق</p></div>
+          </div>
+          <div class="detail-item">
+            <span class="detail-icon"></span>
+            <div><strong>العروس</strong><p>سلمى</p></div>
+          </div>
+          <div class="detail-item">
+            <span class="detail-icon"></span>
+            <div><strong>التاريخ</strong><p>السبت، 12 ديسمبر 2026</p></div>
+          </div>
+          <div class="detail-item">
+            <span class="detail-icon"></span>
+            <div><strong>الوقت</strong><p>السابعة مساءًا</p></div>
+          </div>
+        </div>
+        <a id="locationBtn" href="https://maps.app.goo.gl/x3oKAE6XPMecfYgn8" target="_blank" rel="noopener" class="location-btn">
+          موقع الحفل — افتح الخريطة
+          <span>↗</span>
+        </a>
+      </article>
+
+      <!-- Card 4: Countdown -->
+      <article class="card card-countdown" data-card>
+        <p class="card-eyebrow">العد التنازلي</p>
+        <h3 class="countdown-title">كم بقي على أجمل يوم؟</h3>
+        <div id="countdown" class="countdown-grid" aria-live="polite">
+          <div class="count-box"><span class="count-num" id="days">00</span><span class="count-label">يوم</span></div>
+          <div class="count-box"><span class="count-num" id="hours">00</span><span class="count-label">ساعة</span></div>
+          <div class="count-box"><span class="count-num" id="minutes">00</span><span class="count-label">دقيقة</span></div>
+          <div class="count-box"><span class="count-num" id="seconds">00</span><span class="count-label">ثانية</span></div>
+        </div>
+        <div id="countdown-message" class="countdown-message hidden">اليوم بدأت حكايتنا 🤍</div>
+        <p class="countdown-date en">12 DECEMBER 2026</p>
+      </article>
+
+    </div>
+    
+    <!-- Closing Message -->
+    <div class="closing-wrap">
+      <p class="closing-text">وجودكم يزيد فرحتنا اكتمالًا</p>
+      <p class="closing-sub">بكل الحب، ننتظركم</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>صُنع بكل حب بواسطة الباشمبرمج <strong>Farouk</strong> ❤️</p>
+</footer>
+
+<audio id="bgMusic" loop autoplay preload="metadata" src="assets/music.mp3"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
