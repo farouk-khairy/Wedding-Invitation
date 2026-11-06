@@ -1,150 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>فاروق & سلمى | دعوة زفاف</title>
-<meta name="description" content="دعوة زفاف فاروق وسلمى - 12 ديسمبر 2026">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>دعوة زفاف فاروق وسلمى</title>
+  <meta name="description" content="دعوة زفاف فاروق وسلمى — السبت 12 ديسمبر 2026">
+  <meta name="theme-color" content="#2a0610">
+
+  <!-- أول ما يظهر للزائر هو الباب: نحمّله بأولوية عالية -->
+  <link rel="preload" as="image" href="assets/images/door.svg" fetchpriority="high">
+  <link rel="preload" as="font" type="font/woff" href="assets/fonts/tajawal-400.woff" crossorigin>
+  <link rel="preload" as="font" type="font/woff" href="assets/fonts/tajawal-500.woff" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="js/vendor/gsap.min.js"></script>
+  <script defer src="js/vendor/ScrollTrigger.min.js"></script>
+  <script defer src="js/main.js"></script>
+  <noscript><style>.gate{display:none!important}body{overflow:auto!important}</style></noscript>
 </head>
-<body>
-<!-- Preloader -->
-<div id="preloader" aria-hidden="true">
-  <div class="loader-inner">
-    <p class="loader-names">فاروق <span>&</span> سلمى</p>
-    <div class="loader-line"><span></span></div>
+
+<body class="is-locked">
+
+<!-- ========== Scene 00 — The Door (بوابة الدعوة) ========== -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="بوابة الدعوة">
+  <div class="gate__light" aria-hidden="true"></div>
+  <div class="gate__doors" aria-hidden="true">
+    <div class="gate__leaf gate__leaf--l"><div class="gate__art"></div></div>
+    <div class="gate__leaf gate__leaf--r"><div class="gate__art"></div></div>
   </div>
+  <p class="gate__names" dir="rtl"><span data-bind="groom">فاروق</span> <span class="amp">&amp;</span> <span data-bind="bride">سلمى</span></p>
+  <button class="gate__btn" id="gateBtn" type="button" aria-label="افتح الدعوة"><span data-bind="gateText">افتح</span></button>
 </div>
 
-<!-- Music Control -->
-<button id="musicToggle" class="music-btn" aria-label="تشغيل الموسيقى">
-  <span class="music-icon"></span>
-  <span class="music-text">الموسيقى</span>
-</button>
+<div class="app" id="app" inert>
 
-<main id="smooth-wrapper">
-  <!-- HERO - Scene 01 -->
-  <section id="hero" aria-label="المشهد الافتتاحي">
-    <div class="hero-media">
-      <!-- استبدل الصورة بسهولة: ضع صورتك الحالية في assets/images/hero.png -->
-      <!-- لإضافة فيديو بدل الصورة، استبدل الـ img بهذا الكود:
-      <video autoplay muted loop playsinline preload="metadata" poster="assets/images/hero.png">
-        <source src="assets/video/wedding.mp4" type="video/mp4">
-      </video>
-      -->
-      <img id="heroImage" src="assets/hero.png" 
-           onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop'"
-           alt="فاروق وسلمى - شرفة قصر تطل على حديقة الغروب" fetchpriority="high">
-      <div class="hero-overlay"></div>
-      <div class="hero-cream-layer"></div>
-      <div class="hero-grain"></div>
-    </div>
+  <!-- زر الموسيقى -->
+  <button class="music" id="musicBtn" type="button" aria-pressed="false" aria-label="تشغيل الموسيقى">
+    <span class="music__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </button>
+  <audio id="bgm" loop preload="metadata"></audio>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
 
-    <div class="hero-content">
-      <p class="eyebrow">بداية حكايتنا</p>
-      <h1 class="hero-title">فاروق <span>&</span> سلمى</h1>
-      <p class="hero-date">السبت، 12 ديسمبر 2026</p>
-      <div class="scroll-hint">
-        <span>اسحب لاكتشاف حكايتنا</span>
-        <i class="scroll-arrow">↓</i>
+  <main id="main" tabindex="-1">
+
+    <!-- ========== Scene 01 — Our Future ========== -->
+    <section class="hero" id="hero" aria-label="المشهد الافتتاحي">
+      <div class="hero__media">
+        <div class="hero__kb">
+          <img class="hero__img" id="heroImg" alt="فاروق وسلمى من الخلف في شرفة قصر ينظران إلى حديقة عند الغروب" decoding="async" width="1672" height="941">
+        </div>
       </div>
-    </div>
-  </section>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__tint" aria-hidden="true"></div>
 
-  <!-- MAGIC STACK SECTION -->
-  <section id="stack" aria-label="تفاصيل الدعوة">
-    <div class="stack-container">
+      <div class="hero__content">
+        <p class="hero__kicker reveal" style="--d:.2s">دعوة زفاف</p>
+        <h1 class="hero__names reveal" style="--d:.45s"><span data-bind="groom">فاروق</span><span class="amp">&amp;</span><span data-bind="bride">سلمى</span></h1>
+        <div class="hero__rule reveal" style="--d:.8s" aria-hidden="true"></div>
+        <p class="hero__date reveal" style="--d:1s" data-bind="heroDate">12 ديسمبر 2026</p>
+      </div>
 
-      <!-- Card 1: Invitation -->
-      <article class="card card-1" data-card>
-        <div class="card-decor top"></div>
-        <p class="card-eyebrow">دعوة زفاف</p>
-        <div class="divider"><span></span><em>❧</em><span></span></div>
-        <p class="invitation-text">
-          في مناسبة سعيدة، نرجو حضوركم ومشاركتنا فرحة زفاف
-        </p>
-        <h2 class="couple-names">فاروق وسلمى</h2>
-        <p class="invitation-text sm">
-          وجعل هذا المساء أجمل بوجودكم معنا.<br>
-          نلتقي لنحتفل ببداية حكاية جديدة، ونشارككم أجمل لحظاتنا.
-        </p>
-        <div class="divider small"><span></span></div>
-      </article>
+      <a class="hero__scroll" href="#story" id="scrollHint">
+        <span class="hero__scroll-in reveal" style="--d:1.5s">
+          <span>اسحب لاكتشاف حكايتنا</span>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <div class="hero__veil" aria-hidden="true"></div>
+    </section>
 
-      <!-- Card 2: Quran -->
-      <article class="card card-quran" data-card>
-        <div class="quran-ornament">﷽</div>
-        <blockquote class="quran-verse">
-          ﴿وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾
-        </blockquote>
-        <p class="quran-source">سورة الروم — الآية 21</p>
-        <div class="divider"><span></span><em>✦</em><span></span></div>
+    <!-- ========== Scenes 03–06 — Verse · Invitation · Details · Countdown ========== -->
+    <section class="stage" id="story" aria-label="الدعوة">
+      <div class="stage__bg" aria-hidden="true">
+        <svg class="branch branch--a"><use href="#branch"/></svg>
+        <svg class="branch branch--b"><use href="#branch"/></svg>
+      </div>
+
+      <div class="stage__cards" id="cards">
+
+
+        <!-- Scene 03 — الدعوة -->
+        <article class="card card--invite" aria-labelledby="inviteNames">
+          <p class="card-eyebrow">دعوة زفاف</p>
+          <div class="ornament" aria-hidden="true"></div>
+          <p class="invite__lead">في مناسبة سعيدة، نرجو حضوركم<br>ومشاركتنا فرحة زفاف</p>
+          <h2 class="invite__names" id="inviteNames"><span data-bind="groom">فاروق</span> و<span data-bind="bride">سلمى</span></h2>
+          <div class="ornament" aria-hidden="true"></div>
+          <p class="invite__text">وجعل هذا المساء أجمل بوجودكم معنا.</p>
+          <p class="invite__text">نلتقي لنحتفل ببداية حكاية جديدة،<br>ونشارككم أجمل لحظاتنا.</p>
+        </article>
+
+        <!-- Scene 04 — الآية -->
+        <article class="card card--verse" aria-labelledby="verseText">
+          <p class="quran-ornament">﷽</p>
+          <div class="ornament" aria-hidden="true"></div>
+          <blockquote class="verse-wrap">
+            <p class="verse" id="verseText" aria-label="﴿وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾"><span class="verse__text">﴿ وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</span></p>
+            <footer class="verse__src">سورة الروم — الآية 21</footer>
+          </blockquote>
+          <div class="ornament" aria-hidden="true"></div>
         <p class="quran-desc">آيةٌ تُخلّد معنى السكينة والمودة التي تجمع القلوب</p>
-      </article>
+        </article>
 
-      <!-- Card 3: Details -->
-      <article class="card card-details" data-card>
-        <p class="card-eyebrow">تفاصيل المناسبة</p>
-        <h3 class="details-title">يومٌ نبدأ فيه حكايتنا</h3>
-        <div class="details-grid">
-          <div class="detail-item">
-            <span class="detail-icon"></span>
-            <div><strong>العريس</strong><p>فاروق</p></div>
+        
+
+        <!-- Scene 05 — التفاصيل -->
+        <article class="card card--details" aria-labelledby="detailsTitle">
+          <h2 class="card__title" id="detailsTitle">تفاصيل الحفل</h2>
+          <ul class="details">
+            <li>
+              <span class="ico ico--dot" aria-hidden="true"></span>
+              <span class="details__label">العريس</span>
+              <strong data-bind="groom">فاروق</strong>
+            </li>
+            <li>
+              <span class="ico ico--dot" aria-hidden="true"></span>
+              <span class="details__label">العروس</span>
+              <strong data-bind="bride">سلمى</strong>
+            </li>
+            <li>
+              <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
+              <span class="details__label">التاريخ</span>
+              <strong data-bind="displayDate">السبت، 12 ديسمبر 2026</strong>
+            </li>
+             <li data-optional="time" hidden>
+              <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+              <span class="details__label">الوقت</span>
+              <strong data-bind="time"></strong>
+            </li> 
+            <li data-optional="venue" hidden>
+              <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s6.5-5.6 6.5-11A6.5 6.5 0 0 0 5.5 10C5.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/></svg></span>
+              <span class="details__label">المكان</span>
+              <strong data-bind="venue"></strong>
+            </li>
+          </ul>
+          <a class="btn" id="mapBtn" href="https://maps.app.goo.gl/x3oKAE6XPMecfYgn8" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 21s6.5-5.6 6.5-11A6.5 6.5 0 0 0 5.5 10C5.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span>موقع الحفل - افتح الخريطة ↗</span>
+          </a>
+        </article>
+
+        <!-- Scene 06 — العد التنازلي -->
+        <article class="card card--countdown" aria-labelledby="cdTitle">
+          <h2 class="card__title" id="cdTitle">العد التنازلي ليوم العمر</h2>
+          <div class="countdown" id="countdown" role="timer" aria-label="الوقت المتبقي">
+            <div class="cd"><span class="cd__num" data-unit="days">000</span><span class="cd__label">الأيام</span></div>
+            <div class="cd"><span class="cd__num" data-unit="hours">00</span><span class="cd__label">الساعات</span></div>
+            <div class="cd"><span class="cd__num" data-unit="minutes">00</span><span class="cd__label">الدقائق</span></div>
+            <div class="cd"><span class="cd__num" data-unit="seconds">00</span><span class="cd__label">الثواني</span></div>
           </div>
-          <div class="detail-item">
-            <span class="detail-icon"></span>
-            <div><strong>العروس</strong><p>سلمى</p></div>
-          </div>
-          <div class="detail-item">
-            <span class="detail-icon"></span>
-            <div><strong>التاريخ</strong><p>السبت، 12 ديسمبر 2026</p></div>
-          </div>
-          <div class="detail-item">
-            <span class="detail-icon"></span>
-            <div><strong>الوقت</strong><p>السادسة مساءًا</p></div>
-          </div>
-        </div>
-        <a id="locationBtn" href="https://maps.app.goo.gl/x3oKAE6XPMecfYgn8" target="_blank" rel="noopener" class="location-btn">
-          موقع الحفل — افتح الخريطة
-          <span>↗</span>
-        </a>
-      </article>
+          <p class="countdown__done" id="cdDone" hidden></p>
+        </article>
 
-      <!-- Card 4: Countdown -->
-      <article class="card card-countdown" data-card>
-        <p class="card-eyebrow">العد التنازلي</p>
-        <h3 class="countdown-title">كم بقي على أجمل يوم؟</h3>
-        <div id="countdown" class="countdown-grid" aria-live="polite">
-          <div class="count-box"><span class="count-num" id="days">00</span><span class="count-label">يوم</span></div>
-          <div class="count-box"><span class="count-num" id="hours">00</span><span class="count-label">ساعة</span></div>
-          <div class="count-box"><span class="count-num" id="minutes">00</span><span class="count-label">دقيقة</span></div>
-          <div class="count-box"><span class="count-num" id="seconds">00</span><span class="count-label">ثانية</span></div>
-        </div>
-        <div id="countdown-message" class="countdown-message hidden">اليوم بدأت حكايتنا 🤍</div>
-        <p class="countdown-date en">12 DECEMBER 2026</p>
-      </article>
+      </div>
+    </section>
 
-    </div>
-    
-    <!-- Closing Message -->
-    <div class="closing-wrap">
-      <p class="closing-text">وجودكم يزيد فرحتنا اكتمالًا</p>
-      <p class="closing-sub">بكل الحب، ننتظركم</p>
-    </div>
-  </section>
-</main>
+    <!-- ========== Scene 07 — Ending + Footer ========== -->
+    <section class="finale" id="finale" aria-label="الختام">
+      <div class="finale__inner">
+        <p class="finale__eyebrow">وإلى اللقاء</p>
+        <h2 class="finale__names"><span data-bind="groom">فاروق</span><span class="amp">&amp;</span><span data-bind="bride">سلمى</span></h2>
+        <p class="finale__text">حضوركم أجمل هدية، ودعواتكم أجمل بداية.<br>نلقاكم على خير.</p>
+      </div>
+      <footer class="footer">
+        <p>صُنع بكل حب بواسطة الباشمبرمج <span class="footer__sign"><span class="footer__brand">Farouk</span> ❤️</span></p>
+      </footer>
+    </section>
 
-<footer class="site-footer">
-  <p>صُنع بكل حب بواسطة الباشمبرمج <strong>Farouk</strong> ❤️</p>
-</footer>
+  </main>
+</div>
 
-<audio id="bgMusic" loop autoplay preload="metadata" src="assets/music.mp3"></audio>
+<!-- زخرفة نباتية خفيفة جدًا (تُستخدم مرتين في الخلفية) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="branch" viewBox="0 0 220 460">
+    <path d="M120 460C100 380 140 300 110 220C90 160 120 90 100 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    <g fill="currentColor">
+      <path transform="translate(118 410)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <path transform="translate(116 376) scale(-1 1)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <path transform="translate(113 342)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <path transform="translate(111 306) scale(-1 1)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <path transform="translate(108 268) scale(.9)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <path transform="translate(106 234) scale(-.9 .9)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <path transform="translate(108 198) scale(.8)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <path transform="translate(104 160) scale(-.8 .8)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <path transform="translate(104 118) scale(.65)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <path transform="translate(102 90) scale(-.65 .65)" d="M0 0c28-4 50-20 60-46-30 0-54 18-60 46z"/>
+      <circle cx="100" cy="12" r="8"/><circle cx="92" cy="30" r="4.5"/><circle cx="110" cy="40" r="4"/>
+      <ellipse cx="148" cy="330" rx="5" ry="8" transform="rotate(30 148 330)"/>
+      <ellipse cx="70" cy="250" rx="4.5" ry="7" transform="rotate(-30 70 250)"/>
+    </g>
+  </symbol>
+</svg>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="js/main.js"></script>
 </body>
 </html>
